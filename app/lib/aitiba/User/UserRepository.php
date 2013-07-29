@@ -15,4 +15,10 @@ interface UserRepository
      */
 	public function store($data);
 
+     /**
+     * Find a user on storage.
+     *
+     * @param  integer  $id
+     */
+     public function find($id);
 }

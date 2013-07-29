@@ -1,6 +1,12 @@
 <?php
+namespace app\tests;
+class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
+	public function tearDown()
+	{
+		parent::tearDown();
+		\Mockery::close();
+	}
 
 	/**
 	 * Creates the application.

@@ -1,6 +1,6 @@
 <?php
-use aitiba\UserAuth\UserAuthRepository as UserAuth;
-use aitiba\User\UserRepository as User;
+use aitiba\UserAuth\UserAuthRepository;
+use aitiba\User\UserRepository;
 class UsersController extends BaseController {
     /**
      * The UserAuth instance.
@@ -23,7 +23,7 @@ class UsersController extends BaseController {
      * @param  \aitiba\User\UserRepository  $user
      * @return void
      */
-    public function __construct(UserAuth $userauth, User $user)
+    public function __construct(aitiba\UserAuth\UserAuthRepository $userauth, aitiba\User\UserRepository $user)
     {
       $this->userauth = $userauth;
       $this->user = $user;
@@ -116,7 +116,9 @@ class UsersController extends BaseController {
      */
     public function edit($id)
     {
-        //
+        $user = $this->user->find($id);
+
+        return View::make('users.edit')->with('user', $user);
     }
 
     /**

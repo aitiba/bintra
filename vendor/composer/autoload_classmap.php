@@ -354,7 +354,6 @@ return array(
     'PHP_Token_WHITESPACE' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/PHP/Token.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
-    'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
     'User' => $baseDir . '/app/models/User.php',
     'UsersController' => $baseDir . '/app/controllers/UsersController.php',
@@ -376,4 +375,5 @@ return array(
     'aitiba\\User\\EloquentUserRepository' => $baseDir . '/app/lib/aitiba/User/EloquentUserRepository.php',
     'aitiba\\User\\UserRepository' => $baseDir . '/app/lib/aitiba/User/UserRepository.php',
     'aitiba\\User\\UserServiceProvider' => $baseDir . '/app/lib/aitiba/User/UserServiceProvider.php',
+    'app\\tests\\TestCase' => $baseDir . '/app/tests/TestCase.php',
 );

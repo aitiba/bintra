@@ -39,4 +39,17 @@ class EloquentUserRepository implements UserRepository
 		}
 		return false;
 	}
+
+	/**
+     * Find a user on storage.
+     *
+     * @param  integer  $id
+     * @return User
+     */
+	public function find($id) {
+		if (User::find($id)) {
+			return User::find($id);
+		}
+		return false;
+	}
 }
