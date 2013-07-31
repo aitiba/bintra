@@ -4,7 +4,8 @@
 
 
 <p>{{ Lang::get('messages.NEW USER') }} </p>
-{{ Form::open(array('url' => 'users')) }}
+
+{{ Form::open(array('route' => ['users.update', $user->id], 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 
 {{ Form::token(); }}
 <!-- group_id -->

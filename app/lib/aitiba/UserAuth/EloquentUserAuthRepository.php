@@ -8,7 +8,7 @@ class EloquentUserAuthRepository implements UserAuthRepository
 	  //  return $this->name;
 	}*/
 
-	public function login($credentials) 
+	public function attempt($credentials) 
 	{
 		//echo "login";
 		//return "login";

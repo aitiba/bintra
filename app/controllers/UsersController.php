@@ -1,6 +1,6 @@
 <?php
-use aitiba\UserAuth\UserAuthRepository;
-use aitiba\User\UserRepository;
+use aitiba\UserAuth\UserAuthRepository as UserAuth;
+use aitiba\User\UserRepository as User;
 class UsersController extends BaseController {
     /**
      * The UserAuth instance.
@@ -23,7 +23,7 @@ class UsersController extends BaseController {
      * @param  \aitiba\User\UserRepository  $user
      * @return void
      */
-    public function __construct(aitiba\UserAuth\UserAuthRepository $userauth, aitiba\User\UserRepository $user)
+    public function __construct(UserAuth $userauth, User $user)
     {
       $this->userauth = $userauth;
       $this->user = $user;
@@ -46,16 +46,24 @@ class UsersController extends BaseController {
      */
     public function post_login() {
         $credentials = array('username' => Input::get('username'),  'password' => Input::get('password'));
-    // si metio bien los datos de acceso
-        if ($this->userauth->login($credentials))
+    
+        if ($this->userauth->attempt($credentials))
         {
-           return Redirect::route('index_message')->with("flash_message", Lang::get('messages.User succesfully logged!'));
+           return Redirect::route('users.index')
+            ->with("flash_message", Lang::get('messages.User succesfully logged!'));
         }
-        //metio mal los datos de acceso
         else
         {
-          return Redirect::route('login_user')->with("flash_message", Lang::get('messages.User or password incorred!'));
+          return Redirect::route('user.login')
+            ->with("flash_message", Lang::get('messages.User or password incorred!'));
         }
+    }
+
+    public function get_logout(){
+        Auth::logout();
+        return Redirect::route('user.login')
+            ->with("flash_message", Lang::get('messages.User succesfully logout!'));
+    
     }
     /**
      * Display a list of users.
@@ -64,7 +72,7 @@ class UsersController extends BaseController {
      */
     public function index()
     {
-        var_dump(Hash::make('prueba'));
+        return View::make('users.index');
       
     }
 
@@ -88,12 +96,12 @@ class UsersController extends BaseController {
         $data = Input::except('_token');
         $v = $this->user->validation($data);
         if ( is_object($v) ) {
-            return Redirect::to('users/create')->withErrors($v)->withInput();
+            return Redirect::route('users.create')->withErrors($v)->withInput();
         }
         
         if ( $this->user->store($data) )
         {
-            return Redirect::to('users')->with("flash_message", Lang::get('user.User succesfully created!'));
+            return Redirect::route('users.index')->with("flash_message", Lang::get('user.User succesfully created!'));
         }
     }
 
@@ -129,7 +137,20 @@ class UsersController extends BaseController {
      */
     public function update($id)
     {
-        //
+        //dd(Input::all());
+        $data = Input::except('_token');
+        $v = $this->user->validation($data);
+        if ( is_object($v) ) {
+            return Redirect::route('users.edit', $id)->withErrors($v)->withInput();
+        }
+        $data['id'] = $id;
+        
+        if ( $this->user->edit_store($data) )
+        {
+            return Redirect::route('users.index')->with("flash_message", Lang::get('user.User succesfully edited!'));
+        }
+        return false;
+
     }
 
     /**
