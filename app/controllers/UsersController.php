@@ -72,7 +72,8 @@ class UsersController extends BaseController {
      */
     public function index()
     {
-        return View::make('users.index');
+        $users = $this->user->findAll();
+        return View::make('users.index')->with('users', $users);
       
     }
 
@@ -139,11 +140,11 @@ class UsersController extends BaseController {
     {
         //dd(Input::all());
         $data = Input::except('_token');
+        $data['id'] = $id;
         $v = $this->user->validation($data);
         if ( is_object($v) ) {
             return Redirect::route('users.edit', $id)->withErrors($v)->withInput();
         }
-        $data['id'] = $id;
         
         if ( $this->user->edit_store($data) )
         {
@@ -161,7 +162,13 @@ class UsersController extends BaseController {
      */
     public function destroy($id)
     {
-        //
+        //dd("hola");
+        if($this->user->destroy($id))
+        {
+            return Redirect::route('users.index')->with("flash_message", Lang::get('user.User succesfully deleted!'));
+        } else {
+            return Redirect::route('users.index')->with("flash_message", Lang::get('user.has problems to delete!'));
+        }
     }
 
 }

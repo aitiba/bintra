@@ -9,12 +9,16 @@ interface UserRepository
 	public function validation($data);
 
      /**
+     * Find all users on storage.
+     */
+     public function findAll();
+
+     /**
      * Find a user on storage.
      *
      * @param  integer  $id
      */
      public function find($id);
-
 
      /**
      * Store data on storage.
@@ -29,4 +33,12 @@ interface UserRepository
      * @param  \Illuminate\Support\Facades\Redirect  $data
      */
      public function edit_store($data);
+
+     /**
+     * Destroy data on storage.
+     *
+     * @param  integer  $id
+     */
+     public function destroy($id);
+
 }
