@@ -1,9 +1,20 @@
 @extends('templates.main')
 
 @section('content')
-
-
 <p>{{ Lang::get('messages.NEW USER') }} </p>
+ <!-- topbar ends -->
+    <div class="container-fluid">
+    <div class="row-fluid">
+        
+  	  @include('templates.leftbar')
+      
+      
+      <div id="content" class="span10">
+      <!-- content starts -->
+      
+
+      @include('templates.breadcrumb')
+
 
 {{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 {{ Form::hidden('actionType', 'update') }}
