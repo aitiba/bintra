@@ -21,6 +21,13 @@ interface UserRepository
      public function find($id);
 
      /**
+     * Find a user on storage or fails.
+     *
+     * @param  integer  $id
+     */
+     public function findOrFail($id);
+     
+     /**
      * Store data on storage.
      *
      * @param  \Illuminate\Support\Facades\Redirect  $data

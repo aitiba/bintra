@@ -38,6 +38,11 @@
 {{ Form::label('password', Lang::get('users.password')); }}
 {{ $errors->first('password', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>:message</div>') }}
 {{ Form::password('password', null ,array('required')); }}
+
+<!-- password_confirmation -->
+{{ Form::label('password_confirmation', Lang::get('users.password_confirmation')); }}
+{{ $errors->first('password_confirmation', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>:message</div>') }}
+{{ Form::password('password_confirmation', null ,array('required')); }}
 <p>Pasahitzak minimo zenbaki bat, letra xehe bat, lerra larri bat eta hauetako karaktere bereziren bat: @#$%!_$% behar du eduki eta 8 eta 20 karaktere artean.</p>
 
 <!-- username -->

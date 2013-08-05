@@ -16,17 +16,20 @@ class EloquentUserRepository implements UserRepository
      */
 	public function validation($data) 
 	{
-		$user = User::find($data['id']);
-		$this->emailHasChange($user, $data);
-		$this->userNameHasChange($user, $data);
-
-		
-		// if is on edit and password is not set, 
-		// unset pasword validatioin
-		if (Input::get('_method') == 'PUT' || !Input::has('password'))
+		if (Input::get('_method') == 'PUT' )
 		{
-			unset(User::$rules['password']);
+			$user = User::find($data['id']);
+			$this->emailHasChange($user, $data);
+			$this->userNameHasChange($user, $data);
+			// if is on edit and password is not set, 
+			// unset pasword validation
+			if (!Input::has('password')) 
+			{
+				unset(User::$rules['password']);
+				unset(User::$rules['password_confirmation']);
+			}
 		}
+		
 
 		$v = Validator::make($data, User::$rules);
 		if($v->fails())
@@ -76,6 +79,7 @@ class EloquentUserRepository implements UserRepository
      */
 	public function store($data) 
 	{
+		unset($data['password_confirmation']);
 		$data['password'] = Hash::make(Input::get('password'));
 
 		if ( User::create($data)) 
@@ -96,6 +100,8 @@ class EloquentUserRepository implements UserRepository
 	public function edit_store($data) 
 	{
 		$user = User::find($data['id']);
+		unset($user['password_confirmation']);
+	
 		$user = $this->compareData($user, $data);
 		
         if ($user->save()) 
@@ -125,6 +131,7 @@ class EloquentUserRepository implements UserRepository
 
         return $original;
     }
+
 	/**
      * Find a user on storage.
      *
@@ -136,6 +143,21 @@ class EloquentUserRepository implements UserRepository
 		if (User::find($id)) 
 		{
 			return User::find($id);
+		}
+		return false;
+	}
+
+	/**
+     * Find a user on storage or fails.
+     *
+     * @param  integer  $id
+     * @return User
+     */
+	public function findOrFail($id) 
+	{
+		if (User::findOrFail($id)) 
+		{
+			return User::findOrFail($id);
 		}
 		return false;
 	}

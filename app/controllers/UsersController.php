@@ -114,7 +114,9 @@ class UsersController extends BaseController {
      */
     public function show($id)
     {
-        //
+        $user = $this->user->findOrFail($id);
+
+        return View::make('users.show')->with('user', $user);
     }
 
     /**
@@ -126,7 +128,9 @@ class UsersController extends BaseController {
     public function edit($id)
     {
         $user = $this->user->find($id);
-
+        if (!$user) {
+            return Redirect::route('users.index');
+        }
         return View::make('users.edit')->with('user', $user);
     }
 

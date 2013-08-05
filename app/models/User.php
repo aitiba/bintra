@@ -55,7 +55,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     	'group_id' => 'required',
 		'name' => 'required|alpha_num',
 		'email' => 'required|email|unique:users,email',
-		'password' => array('required', 'regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!_$%]).{8,20})'),
+		'password' => array('required', 'regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!_$%]).{8,20})', 'confirmed'),
+		'password_confirmation' => array('required', 'regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!_$%]).{8,20})'),
 		'username' => 'required|alpha_num|unique:users,username',       
     );
 }

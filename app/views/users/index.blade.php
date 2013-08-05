@@ -50,19 +50,24 @@
 				 	<td  class="center"> {{ $user->username }} </td>
 					
 					<td class="center ">
+             {{ Form::open(array('method' => 'GET', 'route' => array('users.show', $user->id))) }}
 						<a href="#" class="btn btn-success">
 							<i class="icon-zoom-in icon-white"></i>  
 								View                                           
 						</a>
+            
 						<a href="/bintra/public/users/{{ $user->id }}/edit" class="btn btn-info">
 							<i class="icon-edit icon-white"></i>  
 								Edit                                            
 						</a>
-						<a href="#" class="btn btn-danger">
-							<i class="icon-trash icon-white"></i> 
-								Delete
-						 </a>
-					</td>
+                
+             {{ Form::open(array('method' => 'DELETE', 'route' => array('users.destroy', $user->id))) }}
+              <a href="#" class="btn btn-danger">
+                <i class="icon-trash icon-white"></i> 
+                  Delete
+               </a>
+             {{ Form::close() }}
+          </td>
 				<!--	  {{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'DELETE', 'class' => 'form-horizontal')) }}
 				      	{{ link_to_route('users.destroy', Lang::get('messages.DELETE'), array($user->id)) }}
 				      {{ Form::close() }} 
