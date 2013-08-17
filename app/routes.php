@@ -7,6 +7,12 @@ Route::group(array('before' => 'auth'), function(){
 
   Route::resource('users', 'UsersController');
   Route::get('logout',array('as' => 'user.logout', 'uses' => 'UsersController@get_logout'));
+
+  Route::post('users/updateUsername',array('as' => 'user.update_username', 'uses' => 'UsersController@updateUsername'));
+  Route::post('users/updateSelect',array('as' => 'user.update_select', 'uses' => 'UsersController@updateSelect'));
+  
+  Route::post('users/all',array('as' => 'user.all', 'uses' => 'UsersController@all'));
+  
   /*
 Verb 		Path 				Action 		Route Name
 GET 		/resource 			index 		resource.index

@@ -26,7 +26,8 @@
   <!-- HTML::style('css/fullcalendar.css') 
 HTML::style('css/fullcalendar.print.css') -->
 
-  <!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+    <!-- jQuery -->
+  {{ HTML::script('js/jquery-1.7.2.min.js'); }}
   {{ HTML::style('css/bootstrap-responsive.css'); }}
   {{ HTML::style('css/charisma-app.css'); }}
   {{ HTML::style('css/jquery-ui-1.8.21.custom.css'); }}
@@ -131,76 +132,77 @@ HTML::style('css/fullcalendar.print.css') -->
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
 
-  <!-- jQuery -->
-  {{ HTML::script('js/jquery-1.7.2.min.js'); }}
   <!-- jQuery UI -->
   {{ HTML::script('js/jquery-ui-1.8.21.custom.min.js'); }}
   <!-- transition / effect library -->
-  {{ HTML::script('js/bootstrap-transition.js'); }}>
+  {{ HTML::script('js/bootstrap-transition.js'); }}
   <!-- alert enhancer library -->
-  {{ HTML::script('js/bootstrap-alert.js'); }}>
+  {{ HTML::script('js/bootstrap-alert.js'); }}
   <!-- modal / dialog library -->
-  {{ HTML::script('js/bootstrap-modal.js'); }}>
+  {{ HTML::script('js/bootstrap-modal.js'); }}
   <!-- custom dropdown library -->
-  {{ HTML::script('js/bootstrap-dropdown.js'); }}>
+  {{ HTML::script('js/bootstrap-dropdown.js'); }}
   <!-- scrolspy library -->
-  {{ HTML::script('js/bootstrap-scrollspy.js'); }}>
+  {{ HTML::script('js/bootstrap-scrollspy.js'); }}
   <!-- library for creating tabs -->
-  {{ HTML::script('js/bootstrap-tab.js'); }}>
+  {{ HTML::script('js/bootstrap-tab.js'); }}
   <!-- library for advanced tooltip -->
-  {{ HTML::script('js/bootstrap-tooltip.js'); }}>
+  {{ HTML::script('js/bootstrap-tooltip.js'); }}
   <!-- popover effect library -->
-  {{ HTML::script('js/bootstrap-popover.js'); }}>
+  {{ HTML::script('js/bootstrap-popover.js'); }}
   <!-- button enhancer library -->
-  {{ HTML::script('js/bootstrap-button.js'); }}>
+  {{ HTML::script('js/bootstrap-button.js'); }}
   <!-- accordion library (optional, not used in demo) -->
-  {{ HTML::script('js/bootstrap-collapse.js'); }}>
+  {{ HTML::script('js/bootstrap-collapse.js'); }}
   <!-- carousel slideshow library (optional, not used in demo) -->
-  {{ HTML::script('js/bootstrap-carousel.js'); }}>
+  {{ HTML::script('js/bootstrap-carousel.js'); }}
   <!-- autocomplete library -->
-  {{ HTML::script('js/bootstrap-typeahead.js'); }}>
+  {{ HTML::script('js/bootstrap-typeahead.js'); }}
   <!-- tour library -->
-  {{ HTML::script('js/bootstrap-tour.js'); }}>
+  {{ HTML::script('js/bootstrap-tour.js'); }}
   <!-- library for cookie management -->
-  {{ HTML::script('js/jquery.cookie.js'); }}>
+  {{ HTML::script('js/jquery.cookie.js'); }}
   <!-- calander plugin -->
-  {{ HTML::script('js/fullcalendar.min.js'); }}>
+  {{ HTML::script('js/fullcalendar.min.js'); }}
   <!-- data table plugin -->
-  {{ HTML::script('js/jquery.dataTables.min.js'); }}>
+  {{ HTML::script('js/jquery.dataTables.min.js'); }}
 
   <!-- chart libraries start -->
-  {{ HTML::script('js/excanvas.js'); }}>
-  {{ HTML::script('js/jquery.flot.min.js'); }}>
-  {{ HTML::script('js/jquery.flot.pie.min.js'); }}>
-  {{ HTML::script('js/jquery.flot.stack.js'); }}>
-  {{ HTML::script('js/jquery.flot.resize.min.js'); }}>
-  {{ HTML::script('js/bootstrap-modal.js'); }}>
+  {{ HTML::script('js/excanvas.js'); }}
+  {{ HTML::script('js/jquery.flot.min.js'); }}
+  {{ HTML::script('js/jquery.flot.pie.min.js'); }}
+  {{ HTML::script('js/jquery.flot.stack.js'); }}
+  {{ HTML::script('js/jquery.flot.resize.min.js'); }}
+  {{ HTML::script('js/bootstrap-modal.js'); }}
   <!-- chart libraries end -->
 
   <!-- select or dropdown enhancer -->
-  {{ HTML::script('js/jquery.chosen.min.js'); }}>
+  {{ HTML::script('js/jquery.chosen.min.js'); }}
   <!-- checkbox, radio, and file input styler -->
-  {{ HTML::script('js/jquery.uniform.min.js'); }}>
+  {{ HTML::script('js/jquery.uniform.min.js'); }}
   <!-- plugin for gallery image view -->
-  {{ HTML::script('js/jquery.colorbox.min.js'); }}>
+  {{ HTML::script('js/jquery.colorbox.min.js'); }}
   <!-- rich text editor library -->
-  {{ HTML::script('js/jquery.cleditor.min.js'); }}>
+  {{ HTML::script('js/jquery.cleditor.min.js'); }}
   <!-- notification plugin -->
-  {{ HTML::script('js/jquery.noty.js'); }}>
+  {{ HTML::script('js/jquery.noty.js'); }}
   <!-- file manager library -->
-  {{ HTML::script('js/jquery.elfinder.min.js'); }}>
+  {{ HTML::script('js/jquery.elfinder.min.js'); }}
   <!-- star rating plugin -->
-  {{ HTML::script('js/jquery.raty.min.js'); }}>
+  {{ HTML::script('js/jquery.raty.min.js'); }}
   <!-- for iOS style toggle switch -->
-  {{ HTML::script('js/jquery.iphone.toggle.js'); }}>
+  {{ HTML::script('js/jquery.iphone.toggle.js'); }}
   <!-- autogrowing textarea plugin -->
-  {{ HTML::script('js/jquery.autogrow-textarea.js'); }}>
+  {{ HTML::script('js/jquery.autogrow-textarea.js'); }}
   <!-- multiple file upload plugin -->
-  {{ HTML::script('js/jquery.uploadify-3.1.min.js'); }}>
+  {{ HTML::script('js/jquery.uploadify-3.1.min.js'); }}
   <!-- history.js for cross-browser state change on ajax -->
-  {{ HTML::script('js/jquery.history.js'); }}>
+  {{ HTML::script('js/jquery.history.js'); }}
   <!-- application script for Charisma demo -->
   <!--{{ HTML::script('js/charisma.js'); }}> -->
+  <!-- jeditable -->
+  {{ HTML::script('js/select2.js'); }}
+  
   
 </body>
 </html>

@@ -165,7 +165,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #EAEAEA;
   text-decoration: none;
 }
 
@@ -405,8 +405,8 @@ a:hover {
 }
 
 .container-fluid {
-  padding-right: 20px;
-  padding-left: 20px;
+  /*padding-right: 20px;*/
+  /*padding-left: 20px;*/
   *zoom: 1;
 }
 
@@ -2488,15 +2488,16 @@ table .span24 {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #eee;
+  /*background-color: #f5f5f5;*/
+  background-color: #333333;
+  /*border: 1px solid #eee;
   border: 1px solid rgba(0, 0, 0, 0.05);
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
 }
 
 .well blockquote {
@@ -3571,7 +3572,7 @@ input[type="submit"].btn.btn-mini {
 .navbar {
   *position: relative;
   *z-index: 2;
-  margin-bottom: 18px;
+  /*margin-bottom: 18px;*/
   overflow: visible;
 }
 
@@ -3587,13 +3588,13 @@ input[type="submit"].btn.btn-mini {
   background-image: -o-linear-gradient(top, #333333, #222222);
   background-image: linear-gradient(top, #333333, #222222);
   background-repeat: repeat-x;*/
-  -webkit-border-radius: 4px;
+  /*-webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);*/
 }
 
 .navbar .container {
@@ -4980,4 +4981,84 @@ a.badge:hover {
 
 .invisible {
   visibility: hidden;
+}
+
+
+
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 14px;
+}
+.icon-white, .nav-pills > .active > a > [class^="icon-"], .nav-pills > .active > a > [class*=" icon-"], .nav-list > .active > a > [class^="icon-"], .nav-list > .active > a > [class*=" icon-"], .navbar-inverse .nav > .active > a > [class^="icon-"], .navbar-inverse .nav > .active > a > [class*=" icon-"], .dropdown-menu > li > a:hover > [class^="icon-"], .dropdown-menu > li > a:focus > [class^="icon-"], .dropdown-menu > li > a:hover > [class*=" icon-"], .dropdown-menu > li > a:focus > [class*=" icon-"], .dropdown-menu > .active > a > [class^="icon-"], .dropdown-menu > .active > a > [class*=" icon-"], .dropdown-submenu:hover > a > [class^="icon-"], .dropdown-submenu:focus > a > [class^="icon-"], .dropdown-submenu:hover > a > [class*=" icon-"], .dropdown-submenu:focus > a > [class*=" icon-"] {
+    background-image: url("glyphicons-halflings-white.png");
+}
+.icon-search {
+    background-position: -48px 0;
+}
+.icon-envelope {
+    background-position: -72px 0;
+}
+.icon-user {
+    background-position: -168px 0;
+}
+.icon-th-large {
+    background-position: -216px 0;
+}
+.icon-th-list {
+    background-position: -264px 0;
+}
+.icon-ok {
+    background-position: -288px 0;
+}
+.icon-off {
+    background-position: -384px 0;
+}
+.icon-cog {
+    background-position: -432px 0;
+}
+.icon-home {
+    background-position: 0 -24px;
+}
+.icon-time {
+    background-position: -48px -24px;
+}
+.icon-align-justify {
+    background-position: -336px -48px;
+}
+.icon-pencil {
+    background-position: 0 -72px;
+}
+.icon-edit {
+    background-position: -96px -72px;
+}
+.icon-plus-sign {
+    background-position: 0 -96px;
+}
+.icon-remove-sign {
+    background-position: -48px -96px;
+}
+.icon-info-sign {
+    background-position: -120px -96px;
+}
+.icon-ban-circle {
+    background-position: -216px -96px;
+}
+.icon-plus {
+    background-position: -408px -96px;
+}
+.icon-eye-open {
+    background-position: -96px -120px;
+}
+.icon-calendar {
+    background-position: -192px -120px;
+}
+.icon-hand-up {
+    background-position: -192px -144px;
 }

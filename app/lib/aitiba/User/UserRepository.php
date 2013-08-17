@@ -1,6 +1,10 @@
 <?php namespace aitiba\User;
 interface UserRepository 
 {
+     public function rules($field);
+
+     public function create();
+
 	/**
      * Validation for data.
      *
@@ -35,11 +39,18 @@ interface UserRepository
      public function store($data);
 
      /**
-     * Store data on edit on storage.
+     * Update storage.
      *
      * @param  \Illuminate\Support\Facades\Redirect  $data
      */
-     public function edit_store($data);
+     public function update($data);
+
+     /**
+     * Find a group by their name.
+     * @param String $name
+     * @return Group
+     */
+     public function wherename($name);
 
      /**
      * Destroy data on storage.

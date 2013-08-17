@@ -59,6 +59,76 @@ class UsersController extends BaseController {
         }
     }
 
+    public function updateUsername() 
+    {
+        $id = Input::get('id');
+        $value = trim(Input::get('value'));
+        $field = Input::get('field');
+
+//dd($value);
+        // echo "pasa";
+        $v = Validator::make(
+            array($field => $value),
+            array($field => $this->user->rules($field))
+        );
+        if ($v->fails())
+        {
+            if ($field=="name")
+            {
+                return "ERROR: Solo alphanumericos";
+            }
+            elseif ($field=="email")
+            {
+                return "ERROR: Formato email válido:info@burujabetech.net . Emails únicos";
+            }
+            elseif ($field=="username")
+            {
+                return "ERROR: Solo alphanumericos.Username únicos.";
+            }
+        }
+        $user = $this->user->find($id);
+
+        $user->$field = $value;
+        $user->save();
+
+        return "Saved";
+    }
+
+    public function updateSelect()
+    {
+        $id = Input::get('id');
+        $value = trim(Input::get('value'));
+        $field = Input::get('field');
+
+//dd($value);
+        // echo "pasa";
+        $v = Validator::make(
+            array($field => $value),
+            array($field => $this->user->rules($field))
+        );
+        if ($v->fails())
+        {
+          return "ERROR: Intentelo de nuevo.";
+        }
+
+        $value = Group::wherename($value)->first();
+        $value = $value->id;
+        $user = $this->user->find($id);
+
+        $user->$field = $value;
+        $user->save();
+
+        return "Saved";
+    }
+
+    public function all() 
+    {
+       // dd("entra");
+        // string '{"E":"Letter E","F":"Letter F","G":"Letter G","selected":"F"}' (length=61)
+        //$id = Input::get('id');
+        dd($this->user->findAll());
+    }
+    
     public function get_logout(){
         Auth::logout();
         return Redirect::route('user.login')
@@ -73,7 +143,14 @@ class UsersController extends BaseController {
     public function index()
     {
         $users = $this->user->findAll();
-        return View::make('users.index')->with('users', $users);
+        $groups = Group::all();
+        foreach ($groups as $group) {
+            $group_data[$group->name] = $group->name;
+        }
+
+        //dd("asd");
+        
+        return View::make('users.index')->with('users', $users)->with('group_data', $group_data);
       
     }
 
@@ -94,7 +171,12 @@ class UsersController extends BaseController {
      */
     public function store()
     {
-        $data = Input::except('_token');
+        $data = Input::all();
+        /*$s = $this->user->create();
+
+        dd($s->passes());*/
+
+      
         $v = $this->user->validation($data);
         if ( is_object($v) ) {
             return Redirect::route('users.create')->withErrors($v)->withInput();
@@ -150,7 +232,7 @@ class UsersController extends BaseController {
             return Redirect::route('users.edit', $id)->withErrors($v)->withInput();
         }
         
-        if ( $this->user->edit_store($data) )
+        if ( $this->user->update($data) )
         {
             return Redirect::route('users.index')->with("flash_message", Lang::get('user.User succesfully edited!'));
         }

@@ -329,12 +329,12 @@ height:0px;
 
 .sidebar-nav{
 min-height:0;
-box-shadow: 0 0 10px #BDBDBD;
+/*box-shadow: 0 0 10px #BDBDBD;
 -webkit-box-shadow: 0 0 10px #BDBDBD;
 -moz-box-shadow: 0 0 10px #BDBDBD;
 border-radius: 5px;
 -webkit-border-radius: 5px;
--moz-border-radius: 5px;
+-moz-border-radius: 5px;*/
 margin-bottom: 0;
 padding-bottom:0;
 }
@@ -386,11 +386,11 @@ margin-bottom:0;
 margin-left:10px;
 }
 .navbar-inner{
-border-radius:0 0 10px 10px;
+/*border-radius:0 0 10px 10px;
 -webkit-border-radius:0 0 10px 10px;
 -moz-border-radius:0 0 10px 10px;
 padding-top:5px; 
-padding-bottom:5px; 
+padding-bottom:5px; */
 }
 div.dataTables_length select {
 width: 50px;

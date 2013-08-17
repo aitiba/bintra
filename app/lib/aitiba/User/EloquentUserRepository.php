@@ -1,12 +1,27 @@
 <?php namespace aitiba\User;
 use User;
+use Group;
 use Hash;
 use Input;
 use Redirect;
 use Lang;
 use Validator;
+use aitiba\Validators\User as MyValidator;
 class EloquentUserRepository implements UserRepository 
 {
+
+	public function rules($field)
+	{
+		return User::$rules[$field];
+	}
+
+	public function create()
+	{
+		$input = $data = Input::except('password_confirmation');
+		return User::create($input);
+		//dd(MyValidator::$rules);
+		//dd(MyValidator::passes());
+	}
 	/**
      * Validation.
      *
@@ -79,7 +94,7 @@ class EloquentUserRepository implements UserRepository
      */
 	public function store($data) 
 	{
-		unset($data['password_confirmation']);
+		//unset($data['password_confirmation']);
 		$data['password'] = Hash::make(Input::get('password'));
 
 		if ( User::create($data)) 
@@ -97,12 +112,12 @@ class EloquentUserRepository implements UserRepository
      * @return On fails \Illuminate\Support\Facades\Redirect
      * @return On ok bool
      */
-	public function edit_store($data) 
+	public function update($data) 
 	{
 		$user = User::find($data['id']);
-		unset($user['password_confirmation']);
+		//unset($user['password_confirmation']);
 	
-		$user = $this->compareData($user, $data);
+		$user = $this->setData($user, $data);
 		
         if ($user->save()) 
         {
@@ -113,13 +128,13 @@ class EloquentUserRepository implements UserRepository
 	}
 
 	/**
-     * Has email field change?
+     * Set data from input to original
      *
      * @param  Original usr data from database  $original
      * @param Data from input $input
      * @return User
      */
-	private function compareData($original, $input)
+	private function setData($original, $input)
 	{
 		if (Input::has('password')) {
             $original->password = Hash::make(Input::get('password'));
@@ -171,6 +186,21 @@ class EloquentUserRepository implements UserRepository
 		return User::all();
 	}
 
+	/**
+     * Find a group by their name.
+     * @param String $name
+     * @return Group
+     */
+	public function wherename($name)
+	{
+		return Group::wherename($name);
+	}
+
+	/**
+     * Destroy data on storage.
+     *
+     * @param  integer  $id
+     */
 	public function destroy($id) {
 		$user = User::find($id);
 
