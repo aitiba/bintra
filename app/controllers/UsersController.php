@@ -248,7 +248,6 @@ class UsersController extends BaseController {
      */
     public function destroy($id)
     {
-        //dd("hola");
         if($this->user->destroy($id))
         {
             return Redirect::route('users.index')->with("flash_message", Lang::get('user.User succesfully deleted!'));
@@ -256,5 +255,4 @@ class UsersController extends BaseController {
             return Redirect::route('users.index')->with("flash_message", Lang::get('user.has problems to delete!'));
         }
     }
-
 }

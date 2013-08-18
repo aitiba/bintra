@@ -60,15 +60,4 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		'password_confirmation' => array('required', 'regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!_$%]).{8,20})'),
 		'username' => 'required|alpha_num|unique:users,username',       
     );
-	/*public function passes()
-  {
-    dd("passes");
-    $validation = \Validator::make($this->input, static::$rules);
-
-    if($validation->passes()) return true;
-    
-    $this->errors = $validation->messages();
-
-    return false;
-  }*/
 }

@@ -12,6 +12,8 @@ Route::group(array('before' => 'auth'), function(){
   Route::post('users/updateSelect',array('as' => 'user.update_select', 'uses' => 'UsersController@updateSelect'));
   
   Route::post('users/all',array('as' => 'user.all', 'uses' => 'UsersController@all'));
+
+  Route::resource('perms', 'PermsController');
   
   /*
 Verb 		Path 				Action 		Route Name

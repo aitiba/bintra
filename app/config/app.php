@@ -116,6 +116,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'aitiba\UserAuth\UserAuthServiceProvider',
 		'aitiba\User\UserServiceProvider',
+		'aitiba\Perm\PermServiceProvider',
 	),
 
 	/*

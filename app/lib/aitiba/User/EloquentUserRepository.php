@@ -105,7 +105,7 @@ class EloquentUserRepository implements UserRepository
 		return false;
 	}
 
-		/**
+	/**
      * Store data on edit on storage.
      *
      * @param  \Illuminate\Support\Facades\Input  $data
@@ -206,5 +206,4 @@ class EloquentUserRepository implements UserRepository
 
 		 return $user->delete();
 	}
-
 }

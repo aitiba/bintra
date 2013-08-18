@@ -6,7 +6,7 @@ class GroupsTableSeeder extends Seeder {
     {
         $groups = array(
             0 => array (
-        	  'name' => 'admin',
+        	    'name' => 'admin',
               'created_at' => new DateTime(),
               'updated_at' => new DateTime(),
             ),

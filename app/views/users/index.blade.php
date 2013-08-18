@@ -69,6 +69,7 @@
 							<i class="icon-zoom-in icon-white"></i>  
 								View                                           
 						</a>
+            {{ Form::close() }}
             
 						<a href="/bintra/public/users/{{ $user->id }}/edit" class="btn btn-info">
 							<i class="icon-edit icon-white"></i>  
