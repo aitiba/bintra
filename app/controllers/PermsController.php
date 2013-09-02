@@ -68,7 +68,6 @@ class PermsController extends BaseController {
 	public function show($id)
 	{
 		$perm = $this->perm->findOrFail($id);
-
         return View::make('perms.show')->with('perm', $perm);
 	}
 
