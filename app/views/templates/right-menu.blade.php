@@ -7,8 +7,8 @@
       </header>
 
       <div id="profile">
-        <img src="img/user.png" width="64" height="64" alt="User name" class="user-icon">
-        Hello
+        {{ HTML::image('img/user.png', null, array('width' => '64', 'height' => '64', 'alt' => 'User name', 'class' => 'user-icon')); }}
+       Hello
         <span class="name">John <b>Doe</b></span>
       </div>
 
@@ -17,7 +17,7 @@
         <li><a href="inbox.html" title="Messages"><span class="icon-inbox"></span><span class="count">2</span></a></li>
         <li><a href="calendars.html" title="Calendar"><span class="icon-calendar"></span></a></li>
         <li><a href="login.html" title="Profile"><span class="icon-user"></span></a></li>
-        <li><a href="logout.html" title="Logout"><span class="icon-logout"></span></a></li>
+        <li>{{ link_to_route('user.logout', 'Logout' ) }} <span class="icon-logout"></span></li>
       </ul>
 
       <!--<section class="navigable">

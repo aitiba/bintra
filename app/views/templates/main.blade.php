@@ -27,12 +27,12 @@
   {{ HTML::style('css/colors.css?v=1'); }}
   {{ HTML::style('css/print.css?v=1', array('media' => 'print')); }}
   <!-- For progressively larger displays -->
-  <link rel="stylesheet" media="only all and (min-width: 480px)" href="css/480.css?v=1">
-  <link rel="stylesheet" media="only all and (min-width: 768px)" href="css/768.css?v=1">
-  <link rel="stylesheet" media="only all and (min-width: 992px)" href="css/992.css?v=1">
-  <link rel="stylesheet" media="only all and (min-width: 1200px)" href="css/1200.css?v=1">
+  {{ HTML::style('css/480.css?v=1', array('media' => 'only all and (min-width: 480px)')); }}
+  {{ HTML::style('css/768.css?v=1', array('media' => 'only all and (min-width: 768px)')); }}
+  {{ HTML::style('css/992.css?v=1', array('media' => 'only all and (min-width: 992px)')); }}
+  {{ HTML::style('css/1200.css?v=1', array('media' => 'only all and (min-width: 1200px)')); }}
   <!-- For Retina displays -->
-  <link rel="stylesheet" media="only all and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)" href="css/2x.css?v=1">
+  {{ HTML::style('css/2x.css?v=1', array('media' => 'only all and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)')); }}
 
   <!-- Webfonts -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
@@ -63,40 +63,41 @@
     }
   </style>
   <!-- JavaScript at bottom except for Modernizr -->
-  <script src="js/libs/modernizr.custom.js"></script>
+  {{ HTML::script('js/libs/modernizr.custom.js'); }}
 
   <!-- For Modern Browsers -->
-  <link rel="shortcut icon" href="img/favicons/favicon.png">
+
+  <link rel="shortcut icon" href="/bintra/public/img/favicons/favicon.png">
   <!-- For everything else -->
-  <link rel="shortcut icon" href="img/favicons/favicon.ico">
+  <link rel="shortcut icon" href="/bintra/public/img/favicons/favicon.ico">
 
   <!-- iOS web-app metas -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <!-- iPhone ICON -->
-  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="57x57">
+  <link rel="apple-touch-icon" href="/bintra/public/img/favicons/apple-touch-icon.png" sizes="57x57">
   <!-- iPad ICON -->
-  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-ipad.png" sizes="72x72">
+  <link rel="apple-touch-icon" href="/bintra/public/img/favicons/apple-touch-icon-ipad.png" sizes="72x72">
   <!-- iPhone (Retina) ICON -->
-  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-retina.png" sizes="114x114">
+  <link rel="apple-touch-icon" href="/bintra/public/img/favicons/apple-touch-icon-retina.png" sizes="114x114">
   <!-- iPad (Retina) ICON -->
-  <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon-ipad-retina.png" sizes="144x144">
+  <link rel="apple-touch-icon" href="/bintra/public/img/favicons/apple-touch-icon-ipad-retina.png" sizes="144x144">
 
   <!-- iPhone SPLASHSCREEN (320x460) -->
-  <link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="(device-width: 320px)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/splash/iphone.png" media="(device-width: 320px)">
   <!-- iPhone (Retina) SPLASHSCREEN (640x960) -->
-  <link rel="apple-touch-startup-image" href="img/splash/iphone-retina.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/splash/iphone-retina.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)">
   <!-- iPhone 5 SPLASHSCREEN (640×1096) -->
-  <link rel="apple-touch-startup-image" href="img/splash/iphone5.png" media="(device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/splash/iphone5.png" media="(device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
   <!-- iPad (portrait) SPLASHSCREEN (748x1024) -->
-  <link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="(device-width: 768px) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/splash/ipad-portrait.png" media="(device-width: 768px) and (orientation: portrait)">
   <!-- iPad (landscape) SPLASHSCREEN (768x1004) -->
-  <link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="(device-width: 768px) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/splash/ipad-landscape.png" media="(device-width: 768px) and (orientation: landscape)">
   <!-- iPad (Retina, portrait) SPLASHSCREEN (2048x1496) -->
-  <link rel="apple-touch-startup-image" href="img/ipad-portrait-retina.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/ipad-portrait-retina.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)">
   <!-- iPad (Retina, landscape) SPLASHSCREEN (1536x2008) -->
-  <link rel="apple-touch-startup-image" href="img/ipad-landscape-retina.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/bintra/public/img/ipad-landscape-retina.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)">
 
   <!-- Microsoft clear type rendering -->
   <meta http-equiv="cleartype" content="on">
@@ -136,8 +137,17 @@
       <h2>sep <strong>01</strong></h2>
     </hgroup>
 
+     @if(Session::has('flash_message'))
+       <p class="message icon-speech green-gradient small-margin-bottom">
+         <span class="block-arrow right">
+            <span></span>
+          </span>
+           {{ Session::get('flash_message') }}
+       </p>
+      @endif
+
     <div class="dashboard">
-      @include('templates.dashboard')
+       @yield('content')
     </div>
 
   </section>
@@ -169,27 +179,28 @@
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Scripts -->
-  <script src="js/libs/jquery-1.9.1.min.js"></script>
-  <script src="js/setup.js"></script>
+  {{ HTML::script('js/libs/jquery-1.9.1.min.js'); }}
+  {{ HTML::script('js/setup.js'); }}
 
   <!-- Template functions -->
-  <script src="js/developr.input.js"></script>
-  <script src="js/developr.message.js"></script>
-  <script src="js/developr.modal.js"></script>
-  <script src="js/developr.navigable.js"></script>
-  <script src="js/developr.notify.js"></script>
-  <script src="js/developr.scroll.js"></script>
-  <script src="js/developr.progress-slider.js"></script>
-  <script src="js/developr.tooltip.js"></script>
-  <script src="js/developr.confirm.js"></script>
-  <script src="js/developr.agenda.js"></script>
-  <script src="js/developr.tabs.js"></script>   <!-- Must be loaded last -->
+  {{ HTML::script('js/developr.input.js'); }}
+  {{ HTML::script('js/developr.message.js'); }}
+  {{ HTML::script('js/developr.modal.js'); }}
+  {{ HTML::script('js/developr.navigable.js'); }}
+  {{ HTML::script('js/developr.notify.js'); }}
+  {{ HTML::script('js/developr.scroll.js'); }}
+  {{ HTML::script('js/developr.progress-slider.js'); }}
+  {{ HTML::script('js/developr.tooltip.js'); }}
+  {{ HTML::script('js/developr.confirm.js'); }}
+  {{ HTML::script('js/developr.agenda.js'); }}
+  {{ HTML::script('js/developr.tabs.js'); }}    <!-- Must be loaded last -->
 
   <!-- Tinycon -->
-  <script src="js/libs/tinycon.min.js"></script>
+  {{ HTML::script('js/libs/tinycon.min.js'); }}
 
-  <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="js/fullcalendar.min.js"></script>
+   <!-- Full Calendar -->
+  {{ HTML::script('js/jquery-ui-1.10.3.custom.min.js'); }}
+  {{ HTML::script('js/fullcalendar.min.js'); }}
 
   <script>
 

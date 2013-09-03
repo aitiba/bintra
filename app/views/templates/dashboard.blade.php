@@ -20,7 +20,7 @@
                 <div class="columns">
                   <div class="new-row four-columns">
                     <div id="profile">
-                      <img width="64" height="64" class="user-icon" alt="User name" src="img/user.png">
+                      <img width="64" height="64" class="user-icon" alt="User name" src="/bintra/img/user.png">
                       <h2 class="relative thin" style="margin-top:-15px">Piztu</h2>
 
                       <span style="font-size:1.3em" class="icon-mail hidden-on-mobile"><a mailto="piztu@piztu.info">piztu@piztu.info</a></span>
