@@ -1,42 +1,42 @@
 @extends('templates.main')
 
 @section('content')
-<p>{{ Lang::get('messages.NEW USER') }} </p>
- <!-- topbar ends -->
-    <div class="container-fluid">
-    <div class="row-fluid">
-        
-  	  @include('templates.leftbar')
-      
-      
-      <div id="content" class="span10">
-      <!-- content starts -->
-      
+  <h3 class="thin underline">Ver usuario</h3>
+  <div class="columns">
+  <div class="six-columns">
+     <!-- group_id -->
+  <p class="inline-large-label button-height">
+    {{ Form::label('group_id',  'Grupo', array('class' => 'label')); }}
+	{{ $user->group_id }}
+  </p>
 
-      @include('templates.breadcrumb')
+  <p class="inline-large-label button-height">
+    <!-- name -->
+	{{ Form::label('name', 'Nombre', array('class' => 'label')); }}
+	{{ $user->name }}
+	<span class="info-spot">
+	  <span class="icon-info-round"></span>
+	  <span class="info-bubble">
+	    This is an information bubble to help the user.
+	  </span>
+	</span>
+  </p>
+
+  <p class="inline-large-label button-height">
+    <!-- email -->
+	{{ Form::label('email', 'Email', array('class' => 'label')); }}
+	{{ $user->email }}
+  </p>
+
+  <p class="inline-large-label button-height">
+    <!-- username -->
+	{{ Form::label('username', 'Nombre de usuario', array('class' => 'label')); }}
+	{{ $user->username }}
+  </p>
+</div>
+</div>
 
 
-<!-- group_id -->
-{{ Form::label('group_id',  Lang::get('users.group_id')); }}
-{{ Form::select('group_id', array(1 => 'admin'), $user->group_id, array('required')); }}
 
-<!-- name -->
-{{ Form::label('name', Lang::get('users.name')); }}
-{{ $errors->first('name', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>:message</div>') }}
-{{ Form::text('name', $user->name ,array('required')); }}
-
-<!-- email -->
-{{ Form::label('email', Lang::get('users.email')); }}
-{{ $errors->first('email', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>:message</div>') }}
-{{ Form::email('email', $user->email, array('required')); }}
-
-
-<!-- username -->
-{{ Form::label('username', Lang::get('users.username')); }}
-{{ $errors->first('username', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>:message</div>') }}
-{{ Form::text('username', $user->username ,array('required')); }}
-
-<!-- submit -->
-{{ Form::submit( Lang::get('users.Send!')); }}
 
 @stop

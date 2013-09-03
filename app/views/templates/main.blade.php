@@ -134,17 +134,15 @@
 
     <hgroup id="main-title" class="thin">
       <h1>Panel</h1>
-      <h2>sep <strong>01</strong></h2>
+      <h2>{{ date('M') }} <strong>{{ date('d') }}</strong></h2>
     </hgroup>
 
      @if(Session::has('flash_message'))
        <p class="message icon-speech green-gradient small-margin-bottom">
-         <span class="block-arrow right">
-            <span></span>
-          </span>
+        <a class="close" title="Hide message" href="#">✕</a>
            {{ Session::get('flash_message') }}
        </p>
-      @endif
+     @endif
 
     <div class="dashboard">
        @yield('content')
