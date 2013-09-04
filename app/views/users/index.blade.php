@@ -16,10 +16,10 @@
     <thead>
       <tr>
         <th class="header headerSortDown hide-on-mobile" scope="col">{{ Lang::get('messages.Group') }} </td>
-        <th width="30%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Name') }} </td>
-        <th width="30%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Email') }}</td>
-        <th width="30%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Username') }}</td>
-        <th width="30%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Delete') }}</td>
+        <th width="25%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Name') }} </td>
+        <th width="25%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Email') }}</td>
+        <th width="25%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Username') }}</td>
+        <th width="40%" scope="col" class="hide-on-mobile header hide-on-mobile">{{ Lang::get('messages.Delete') }}</td>
       </tr>
     </thead>
 
@@ -40,14 +40,25 @@
           <!-- username -->
           <td  class="center username <?php echo $user->id?> editable">{{ $user->username }}</td>
           
-          <td>
-            {{ Form::open(array('method' => 'GET', 'route' => array('users.show', $user->id))) }}
-            <a class="button icon-download" href="users/{{ $user->id }}">View</a>
-            {{ Form::close() }}
-            <a class="button icon-pencil" href="/bintra/public/users/{{ $user->id }}/edit">Edit</a>
+         <td class="center">
+            <!-- view -->
+            <span class="button-group">
+              {{ Form::open(array('method' => 'GET', 'route' => array('users.show', $user->id))) }}
+              <a class="button icon-download" href="users/{{ $user->id }}">View</a>
+              {{ Form::close() }}
+            </span>
+
+             <!-- edit -->
+            <span class="button-group">
+              <a class="button icon-pencil" href="/bintra/public/users/{{ $user->id }}/edit">Edit</a>
+            </span>
+
+             <!-- delete -->
+            <span class="button-group">
              {{Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete'))}}
-              {{Form::submit('Delete', array('class' => 'button icon-trash confirm'))}}
-            {{Form::close()}}
+               {{Form::submit('Delete', array('class' => 'button icon-trash confirm'))}}
+             {{Form::close()}}
+            </span>
           </td>
         </tr>
       @endforeach

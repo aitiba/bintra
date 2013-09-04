@@ -30,17 +30,19 @@
           </th>
           <td class="hide-on-mobile">{{ $perm->module }}</td>
           <td class="center ">
-            {{ Form::open(array('method' => 'GET', 'route' => array('perms.show', $perm->id))) }}
-            <a class="button icon-download" href="perms/{{ $perm->id }}">View</a>
-            {{ Form::close() }}
-            <a href="/bintra/public/perms/{{ $perm->id }}/edit" class="btn btn-info">
-              <i class="icon-edit icon-white"></i>  
-              Edit                                            
-            </a>
+             <!-- view -->
+            <span class="button-group">
+              {{ Form::open(array('method' => 'GET', 'route' => array('perms.show', $perm->id))) }}
+              <a class="button icon-download" href="perms/{{ $perm->id }}">View</a>
+              {{ Form::close() }}
+            </span>
 
+             <!-- delete -->
+            <span class="button-group">
             {{ Form::open(array('route' => array('perms.destroy', $perm->id), 'method' => 'delete')) }}
-              {{ Form::submit('Delete', array('class' => 'button icon-trash confirm')) }}
+              {{ Form::submit('Delete', array('class' => 'button glossy mid-margin-right')) }}
             {{ Form::close()}}
+            </span>
           </td>
         </tr>
       @endforeach
