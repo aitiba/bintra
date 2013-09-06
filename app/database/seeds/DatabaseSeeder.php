@@ -73,6 +73,25 @@ class DatabaseSeeder extends Seeder {
 		$this->call('AurkezsTableSeeder');
 		$this->call('AurkesTableSeeder');
 		$this->call('AurksTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
+		$this->call('GroupsTableSeeder');
 	}
 
 }

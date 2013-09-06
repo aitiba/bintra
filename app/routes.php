@@ -34,3 +34,85 @@ Route::get('panel', function()
 {
     return 'Hello World';
 });
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');
+
+Route::resource('groups', 'GroupsController');

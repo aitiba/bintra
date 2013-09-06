@@ -2,22 +2,17 @@
 
 class GroupsTableSeeder extends Seeder {
 
-    public function run()
-    {
-        $groups = array(
-            0 => array (
-        	    'name' => 'admin',
-              'created_at' => new DateTime(),
-              'updated_at' => new DateTime(),
-            ),
-            1 => array(
-              'name' => 'client',
-              'created_at' => new DateTime(),
-              'updated_at' => new DateTime(),    
-            ),
-        );
+	public function run()
+	{
+		// Uncomment the below to wipe the table clean before populating
+		// DB::table('groups')->truncate();
 
-        DB::table('groups')->insert($groups);
-    }
+		$groups = array(
+
+		);
+
+		// Uncomment the below to run the seeder
+		// DB::table('groups')->insert($groups);
+	}
 
 }

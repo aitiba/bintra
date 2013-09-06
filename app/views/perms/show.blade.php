@@ -1,4 +1,4 @@
-@extends('templates.main')
+@extends('layouts.main')
 
 @section('content')
 <h3 class="thin underline">Ver permiso</h3>

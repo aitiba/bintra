@@ -21,6 +21,7 @@
   <!-- http://www.kylejlarson.com/blog/2012/iphone-5-web-design/ -->
   <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
 
+
   <!-- For all browsers -->
   {{ HTML::style('css/reset.css?v=1'); }}
   {{ HTML::style('css/style.css?v=1'); }}
@@ -64,6 +65,8 @@
   </style>
   <!-- JavaScript at bottom except for Modernizr -->
   {{ HTML::script('js/libs/modernizr.custom.js'); }}
+    {{ HTML::script('js/libs/jquery-1.9.1.min.js'); }}
+  <script src="http://code.jquery.com/jquery-1.9.1.min.map"></script>
 
   <!-- For Modern Browsers -->
 
@@ -153,7 +156,7 @@
 
   <!-- Side tabs shortcuts -->
   <ul id="shortcuts" role="complementary" class="children-tooltip tooltip-right">
-   @include('templates.left-menu')
+   @include('layouts.left-menu')
   </ul>
 
   <!-- Side tabs shortcuts with legends under the icons -->
@@ -170,14 +173,13 @@
 
   <!-- Sidebar/drop-down menu -->
   <section id="menu" role="complementary">
-   @include('templates.right-menu')
+   @include('layouts.right-menu')
   </section>
   <!-- End sidebar/drop-down menu -->
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Scripts -->
-  {{ HTML::script('js/libs/jquery-1.9.1.min.js'); }}
   {{ HTML::script('js/setup.js'); }}
 
   <!-- Template functions -->
@@ -748,4 +750,3 @@
 
   </script>
 </body>
-</html>

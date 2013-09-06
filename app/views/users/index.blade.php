@@ -1,4 +1,4 @@
-@extends('templates.main')
+@extends('layouts.main')
 
 @section('content')
 <style type="text/css">

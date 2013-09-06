@@ -1,20 +1,7 @@
-<?php 
+<?php
 
-class Group extends Eloquent
-{
-	/**
-	* The database table used by the model.
-	*
-	* @var string
-	*/
-	protected $table = 'groups';
+class Group extends Eloquent {
+	protected $guarded = array();
 
-    protected $guarded = array();
-
-    public static $rules = array();
-
-    public function perms()
-    {
-        return $this->belongsToMany('Perm', 'group_perm');
-    }
+	public static $rules = array();
 }
