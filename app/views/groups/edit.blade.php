@@ -10,17 +10,15 @@
 {{ Form::open(array('route' => array('groups.update', $group->id), 'method' => 'PUT', 'class' => 'form-horizontal')) }}
 {{ Form::hidden('actionType', 'update') }}
 {{ Form::token(); }}
-	<ul>
-        <li>
-            {{ Form::label('name', 'Name:') }}
-            {{ Form::text('name') }}
-        </li>
 
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('groups.show', 'Cancel', $group->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
+        <p class="inline-large-label button-height">
+            {{ Form::label('name', 'Name:', array('class' => 'label')) }}
+            {{ Form::text('name', $group->name, array('id' => 'name')) }}
+        </p>
+
+  <p class="button-height">
+    {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
+ </p>
 {{ Form::close() }}
 
 @if ($errors->any())

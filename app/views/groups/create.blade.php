@@ -8,18 +8,16 @@
 {{ Form::open(array('url' => 'groups')) }}
 {{ Form::token(); }}
 
-<ul>
-        <li>
-            {{ Form::label('name', 'Name:') }}
-            {{ Form::text('name') }}
-        </li>
+        <p class="inline-large-label button-height">
+            {{ Form::label('name', 'Name:', array('class' => 'label')) }}
+            {{ Form::text('name', null, array('id' => 'name')) }}
+        </p>
 
-  <li>
-    {{ Form::submit('Submit', array('class' => 'btn')) }}
-  </li>
-</ul>
-
+  <p class="button-height">
+    {{ Form::submit('Create', array('class' => 'btn')) }}
+  </p>
 {{ Form::close() }}
+
 @if ($errors->any())
 <ul>
   {{ implode('', $errors->all('<li class="error">:message</li>')) }}

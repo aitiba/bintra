@@ -1,10 +1,9 @@
-@extends('layouts.scaffold')
+@extends('layouts.main')
 
-@section('main')
-
-<h1>Show Group</h1>
-
-<p>{{ link_to_route('groups.index', 'Return to all groups') }}</p>
+@section('content')
+<h3 class="thin underline">Ver group</h3>
+  <div class="columns">
+  <div class="six-columns">
 
 <table class="table table-striped table-bordered">
 	<thead>
@@ -20,5 +19,7 @@
 		</tr>
 	</tbody>
 </table>
+</div>
+</div>
 
 @stop

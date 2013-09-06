@@ -101,7 +101,7 @@ class GroupsController extends BaseController {
         if ( is_object($v) ) {
             return Redirect::route('groups.edit', $id)->withErrors($v)->withInput();
         }
-        
+        unset($data['actionType']);
         if ( $this->group->update($data) )
         {
             return Redirect::route('groups.index')->with("flash_message", Lang::get('Groups succesfully edited!'));
