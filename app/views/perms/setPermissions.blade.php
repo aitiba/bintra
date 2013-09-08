@@ -22,9 +22,16 @@
           <td class="hide-on-mobile" width="{{ $width }}">
             {{ $perm->name }}.{{ $perm->module }}
           </td>
-          <?php for ($i = 1; $i <= count($groups); $i++) {  ?>
+          <?php for ($i = 1; $i <= count($groups); $i++) {  
+            if (\Perm::find($perm->id)->groups()->having('pivot_group_id','=', $groups[$i-1]['id'])->first()) {
+              $value = 1;
+              $checked = "checked";
+            } else {
+              $value = 0;
+              $checked = "";
+            } ?>
             <td><form>
-              <input type="checkbox" value=0 name="check" id="check" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
+              <input type="checkbox"  checked name="check" id="check" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
             </form></td>
           <?php } ?>
           

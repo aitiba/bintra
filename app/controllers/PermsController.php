@@ -145,22 +145,20 @@ class PermsController extends BaseController {
 		{
 			// mirar si esta ese group por perm.
 			//si esta borrarlo
-			$groups = \Perm::find(2)->groups;
+			$groups = \Perm::find($_POST['perm'])->groups;
 			foreach ($groups as $group) {
 				//dd($group->pivot->group_id);
 				//dd($group->pivot->perm_id);
-				 if(\Perm::find(1)->groups()->having('pivot_group_id','=', 3)->first()){
+				$res = \Perm::find($_POST['perm'])->groups()->having('pivot_group_id','=', $_POST['group']);
+			//	dd(\Perm::find(3)->groups()->having('pivot_group_id','=', 2)->first());
+				 if($res->first()){
 				 	// Borrar ese elemento. Find por dos ids?
-				 	dd("TRUE");
+				 	$res->detach();
 				 } 
-				 /*else {
-				 	dd("FALSE");
-				 }*/
 			}
 		} elseif($_POST['value'] == 1) {
 			// mira esta ese group por perm.
 			// si NO esta, añadirlo.
 		}
-	}
-
+	}			
 }
