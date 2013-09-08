@@ -1,5 +1,6 @@
 <?php
 use aitiba\Perm\PermRepository as Perm;
+use aitiba\Group\GroupRepository as Group;
 class PermsController extends BaseController {
 	/**
      * The Perm instance.
@@ -11,11 +12,13 @@ class PermsController extends BaseController {
     /**
      * Create a new User.
      *
-     * @param  \aitiba\Perm\Perm  $userauth
+     * @param  \aitiba\Group\Group  $group
+     * @param  \aitiba\Perm\Perm  $perm
      * @return void
      */
-    public function __construct(Perm $perm)
+    public function __construct(Group $group, Perm $perm)
     {
+      $this->group = $group;
       $this->perm = $perm;
     }
 	/**
@@ -123,6 +126,41 @@ class PermsController extends BaseController {
         } else {
             return Redirect::route('perms.index')->with("flash_message", Lang::get('Perms problems to delete!'));
         }
+	}
+
+	public function get_set_permissions()
+	{
+		$groups = $this->group->findAll();
+		$perms = $this->perm->findAll();
+
+		return View::make('perms.setPermissions')->with('groups', $groups)->with('perms', $perms);
+		dd($groups);
+	}
+
+	public function setPostPermissions() {
+		/*dd($_POST['value']);
+		dd($_POST['group']);
+		dd($_POST['perm']);*/
+		if($_POST['value'] == 0)
+		{
+			// mirar si esta ese group por perm.
+			//si esta borrarlo
+			$groups = \Perm::find(2)->groups;
+			foreach ($groups as $group) {
+				//dd($group->pivot->group_id);
+				//dd($group->pivot->perm_id);
+				 if(\Perm::find(1)->groups()->having('pivot_group_id','=', 3)->first()){
+				 	// Borrar ese elemento. Find por dos ids?
+				 	dd("TRUE");
+				 } 
+				 /*else {
+				 	dd("FALSE");
+				 }*/
+			}
+		} elseif($_POST['value'] == 1) {
+			// mira esta ese group por perm.
+			// si NO esta, añadirlo.
+		}
 	}
 
 }

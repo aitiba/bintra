@@ -4,7 +4,7 @@ Route::get('login',array('as' => 'user.login', 'uses' => 'UsersController@get_lo
 Route::post('login',array('as' => 'user.post_logint', 'uses' => 'UsersController@post_login'));
 
 Route::group(array('before' => 'auth'), function(){
-
+  /* Users */
   Route::resource('users', 'UsersController');
   Route::get('logout',array('as' => 'user.logout', 'uses' => 'UsersController@get_logout'));
 
@@ -13,7 +13,10 @@ Route::group(array('before' => 'auth'), function(){
   
   Route::post('users/all',array('as' => 'user.all', 'uses' => 'UsersController@all'));
 
+  /* Perms */
   Route::resource('perms', 'PermsController');
+  Route::post('perms/setPostPermissions',array('as' => 'perm.setPostPermissions', 'uses' => 'PermsController@setPostPermissions'));
+
   
   /*
 Verb 		Path 				Action 		Route Name
@@ -35,4 +38,7 @@ Route::get('panel', function()
     return 'Hello World';
 });
 
+  /* Groups */
 Route::resource('groups', 'GroupsController');
+Route::get('set_permissions',array('as' => 'admin.set_permissions', 'uses' => 'PermsController@get_set_permissions', 'before' => 'auth'));
+
