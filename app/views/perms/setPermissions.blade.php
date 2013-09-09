@@ -31,7 +31,7 @@
               $checked = "";
             } ?>
             <td><form>
-              <input type="checkbox"  checked name="check" id="check" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
+              <input type="checkbox"  {{ $checked }} value="{{ $value }}" name="check" id="check" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
             </form></td>
           <?php } ?>
           
@@ -57,7 +57,11 @@
           url:"perms/setPostPermissions",
           data: { group: group, perm: perm, value: selected },
           success: function(data){
-            //alert(data);
+            if(data == 'offnew') {
+             // alert('entra');
+             //#check>input[type=check]
+              alert($(this).val(1));
+            }
           }
         });
   });

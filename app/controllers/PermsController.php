@@ -138,10 +138,16 @@ class PermsController extends BaseController {
 	}
 
 	public function setPostPermissions() {
+		if($_POST['value'] === "on") {
+			echo "on";
+		} else {
+			echo "off";
+		}
 		/*dd($_POST['value']);
 		dd($_POST['group']);
 		dd($_POST['perm']);*/
-		if($_POST['value'] == 0)
+		//dd($_POST['value']);
+		if($_POST['value'] == 1)
 		{
 			// mirar si esta ese group por perm.
 			//si esta borrarlo
@@ -154,11 +160,21 @@ class PermsController extends BaseController {
 				 if($res->first()){
 				 	// Borrar ese elemento. Find por dos ids?
 				 	$res->detach();
+				 	echo "delete";
 				 } 
 			}
-		} elseif($_POST['value'] == 1) {
+		} elseif($_POST['value'] == 0) {
 			// mira esta ese group por perm.
+			//echo "on2";
 			// si NO esta, añadirlo.
+			$exist =  \Perm::find($_POST['perm'])->groups()->find($_POST['group']);
+			//var_dump($groups);
+			if (!$exist)
+			{
+				// Attach relaciona dos modelo existe many to many
+				\Perm::find($_POST['perm'])->groups()->attach(\Group::find($_POST['group']));
+				echo "new";
+			}
 		}
 	}			
 }
