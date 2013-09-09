@@ -36,6 +36,14 @@ App::after(function($request, $response)
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
+
+	//mirar si el usuario conectado, esta asignado al proyecto de la ruta
+
+		//si tiene permisos, mirar si tiene permisos sobre esa accion
+
+			//si NO tiene, return Redirect::to('users.index'); 
+
+		//si no tiene permisos, Redirect::to('users.index'); 
 });
 
 

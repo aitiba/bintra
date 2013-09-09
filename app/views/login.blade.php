@@ -84,7 +84,6 @@
 <body>
 
 	<div id="container">
-
 		<hgroup id="login-title" class="large-margin-bottom">
 			<h1 class="login-title-image">Developr</h1>
 			<h5>&copy; Your Company</h5>

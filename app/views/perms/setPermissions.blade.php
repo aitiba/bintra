@@ -7,6 +7,7 @@
   <a class="button icon-add-user with-tooltip" href="perms/create" title="Crear nuevo permiso"></a>
 </div>
 <div class="new-row twelve-columns">
+  <div  id="myMessages"></div>
   <table class="simple-table responsive-table responsive-table-on" id="sorting-example2">
         <?php $width= 100 / count($groups)+1 ?>
       <tr>
@@ -18,7 +19,6 @@
 
         @foreach ($perms as $perm)
         <tr>
-          {{ $group->id }}
           <td class="hide-on-mobile" width="{{ $width }}">
             {{ $perm->name }}.{{ $perm->module }}
           </td>
@@ -31,7 +31,7 @@
               $checked = "";
             } ?>
             <td><form>
-              <input type="checkbox"  {{ $checked }} value="{{ $value }}" name="check" id="check" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
+              <input type="checkbox"  {{ $checked }} value="{{ $value }}" name="check" id="check{{ $groups[$i-1]['id'] }}{{ $perm->id }}" data-group={{ $groups[$i-1]['id'] }} data-perm={{ $perm->id }}>
             </form></td>
           <?php } ?>
           
@@ -43,24 +43,23 @@
   </table>
 </div>
 <script type="text/javascript">
-//alert('pasa');
-//$("#receiver_id").on("change", function(e) { 
-  $('input#check').on("click", function(e) { 
-    //alert($(this).val());
+  $('input[type=checkbox]').on("click", function(e) { 
     var group = $(this).data("group");
     var perm = $(this).data("perm");
     var selected = $(this).val();
-    //alert(group);alert(perm);
-
+   
     $.ajax({
           type: "POST",
           url:"perms/setPostPermissions",
           data: { group: group, perm: perm, value: selected },
           success: function(data){
-            if(data == 'offnew') {
-             // alert('entra');
-             //#check>input[type=check]
-              alert($(this).val(1));
+            if(data == 'new') {
+              $('input#check'+group+perm).val(1);
+              $('#myMessages').empty().append("<p class='message icon-speech grey-gradient small-margin-bottom'><a href='' title='Hide message' class='close'>✕</a> Añadido correctamente.</p>");
+            //want to delete a perm group
+            }else {
+              $('input#check'+group+perm).val(0);
+              $('#myMessages').empty().append("<p class='message icon-speech grey-gradient small-margin-bottom'><a href='' title='Hide message' class='close'>✕</a> Borrado correctamente.</p>");
             }
           }
         });

@@ -138,20 +138,17 @@ class PermsController extends BaseController {
 	}
 
 	public function setPostPermissions() {
-		if($_POST['value'] === "on") {
-			echo "on";
-		} else {
-			echo "off";
-		}
-		/*dd($_POST['value']);
-		dd($_POST['group']);
-		dd($_POST['perm']);*/
-		//dd($_POST['value']);
 		if($_POST['value'] == 1)
 		{
 			// mirar si esta ese group por perm.
 			//si esta borrarlo
-			$groups = \Perm::find($_POST['perm'])->groups;
+			$exist =  \Perm::find($_POST['perm'])->groups()->find($_POST['group']);
+			//var_dump($groups);
+			if ($exist)
+			{
+				\Perm::find($_POST['perm'])->groups()->detach(\Group::find($_POST['group']));
+			}
+			/*$groups = \Perm::find($_POST['perm'])->groups;
 			foreach ($groups as $group) {
 				//dd($group->pivot->group_id);
 				//dd($group->pivot->perm_id);
@@ -162,7 +159,7 @@ class PermsController extends BaseController {
 				 	$res->detach();
 				 	echo "delete";
 				 } 
-			}
+			}*/
 		} elseif($_POST['value'] == 0) {
 			// mira esta ese group por perm.
 			//echo "on2";
@@ -176,5 +173,5 @@ class PermsController extends BaseController {
 				echo "new";
 			}
 		}
-	}			
+	}
 }
