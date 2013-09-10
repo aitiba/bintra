@@ -113,7 +113,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-        'aitiba\Group\GroupServiceProvider',
+        'aitiba\Project\ProjectServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
 		'aitiba\UserAuth\UserAuthServiceProvider',
 		'aitiba\User\UserServiceProvider',

@@ -193,7 +193,7 @@
   {{ HTML::script('js/developr.tooltip.js'); }}
   {{ HTML::script('js/developr.confirm.js'); }}
   {{ HTML::script('js/developr.agenda.js'); }}
-  {{ HTML::script('js/developr.tabs.js'); }}    <!-- Must be loaded last -->
+  {{ HTML::script('js/developr.tabs.js'); }}
 
   <!-- Tinycon -->
   {{ HTML::script('js/libs/tinycon.min.js'); }}

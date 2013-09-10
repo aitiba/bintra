@@ -42,3 +42,6 @@ Route::get('panel', function()
 Route::resource('groups', 'GroupsController');
 Route::get('set_permissions',array('as' => 'admin.set_permissions', 'uses' => 'PermsController@get_set_permissions', 'before' => 'auth'));
 
+
+
+Route::resource('projects', 'ProjectsController');
