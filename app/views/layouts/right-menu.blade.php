@@ -3,13 +3,13 @@
     <div id="menu-content">
 
       <header>
-        Administrator
+        {{{ Auth::user()->group->name }}}
       </header>
 
       <div id="profile">
         {{ HTML::image('img/user.png', null, array('width' => '64', 'height' => '64', 'alt' => 'User name', 'class' => 'user-icon')); }}
-       Hello
-        <span class="name">John <b>Doe</b></span>
+       Kaixo
+        <span class="name"><b>{{{ Auth::user()->name }}}</b></span>
       </div>
 
       <!-- By default, this section is made for 4 icons, see the doc to learn how to change this, in "basic markup explained" -->
