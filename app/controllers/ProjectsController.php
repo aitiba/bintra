@@ -26,8 +26,16 @@ class ProjectsController extends BaseController {
 	 */
 	public function index()
 	{
-		$projects = $this->project->findAll();
-        return View::make('projects.index')->with('projects', $projects);
+		//si es admin
+		if(Auth::user()->group->name == 'admin')
+		{
+			$projects = $this->project->findAll();
+		// cualquier otro ve los poryectos se los que esta asignado.
+		} else {
+			$projects = Auth::user()->projects;
+		}
+		
+		return View::make('projects.index')->with('projects', $projects);
 	}
 
 	/**
@@ -101,7 +109,7 @@ class ProjectsController extends BaseController {
         if ( is_object($v) ) {
             return Redirect::route('projects.edit', $id)->withErrors($v)->withInput();
         }
-        
+        unset($data['actionType']);
         if ( $this->project->update($data) )
         {
             return Redirect::route('projects.index')->with("flash_message", Lang::get('Projects succesfully edited!'));

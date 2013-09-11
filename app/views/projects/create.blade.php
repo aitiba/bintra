@@ -24,7 +24,7 @@
                             <p class="button-height">
                                 <span class="input">
                                     <span class="icon-calendar"></span>
-                                   <input type="text" id="example" />
+                                   {{ Form::text('inicio', null, array('id' => 'inicio')) }}
                                 </span>
                             </p>
 
@@ -51,6 +51,7 @@
 </div>
 </div>
 
+{{ HTML::script('js/developr.calendar.js'); }}
 <!-- ckeditor -->
 {{ HTML::script('js/libs/ckeditor/ckeditor.js'); }}
 <!-- glDatePicker -->
@@ -62,12 +63,12 @@ CKEDITOR.replace( 'ckeditor', {
     height: 9000
 });
 // Call template init (optional, but faster if called manually)
-        $.template.init();
+        //$.template.init();
 
 
         $(window).load(function()
         {
-            $('#example').glDatePicker();
+            $('#inline-datepicker').glDatePicker();
         });
 
 </script>

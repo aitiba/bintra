@@ -60,4 +60,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface
 		'password_confirmation' => array('required', 'regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!_$%]).{8,20})'),
 		'username' => 'required|alpha_num|unique:users,username',       
     );
+
+    public function group()
+    {
+        //return $this->belongsTo('Group');
+        return $this->belongsTo('Group');
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany('Project');
+    }
 }

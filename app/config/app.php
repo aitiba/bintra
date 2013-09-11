@@ -114,7 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'aitiba\Project\ProjectServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
+        'aitiba\Group\GroupServiceProvider',
 		'aitiba\UserAuth\UserAuthServiceProvider',
 		'aitiba\User\UserServiceProvider',
 		'aitiba\Perm\PermServiceProvider',

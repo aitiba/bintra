@@ -8,7 +8,7 @@ class Perm extends Eloquent {
 		'module' => 'required|alpha_num',   
     );
 
-     public function groups()
+    public function groups()
     {
         return $this->belongsToMany('Group');
     }

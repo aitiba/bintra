@@ -9,18 +9,18 @@
 	<thead>
 		<tr>
 			<th>Name</th>
-				<th>Description</th>
-				<th>Inicio</th>
-				<th>Cost</th>
+			<th>Description</th>
+			<th>Inicio</th>
+			<th>Cost</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
-			<td>{{{ $project->name }}}</td>
-					<td>{{{ $project->description }}}</td>
-					<td>{{{ $project->inicio }}}</td>
-					<td>{{{ $project->cost }}}</td>
+			<td> {{{ $project->name }}} </td>
+			<td> {{ $project->description }} </td>
+			<td> {{{ $project->inicio }}} </td>
+			<td> {{{ $project->cost }}} </td>
 
 		</tr>
 	</tbody>

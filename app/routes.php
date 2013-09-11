@@ -5,8 +5,10 @@ Route::post('login',array('as' => 'user.post_logint', 'uses' => 'UsersController
 
 Route::group(array('before' => 'auth'), function(){
   /* Users */
+  Route::when('users', 'only_admin');
+  Route::when('users/*', 'only_admin');
   Route::resource('users', 'UsersController');
-  Route::get('logout',array('as' => 'user.logout', 'uses' => 'UsersController@get_logout'));
+  Route::get('logout',array('as' => 'user.logout', 'uses' => 'UsersController@get_logout', 'before' => 'only_admin'));
 
   Route::post('users/updateUsername',array('as' => 'user.update_username', 'uses' => 'UsersController@updateUsername'));
   Route::post('users/updateSelect',array('as' => 'user.update_select', 'uses' => 'UsersController@updateSelect'));
@@ -14,6 +16,8 @@ Route::group(array('before' => 'auth'), function(){
   Route::post('users/all',array('as' => 'user.all', 'uses' => 'UsersController@all'));
 
   /* Perms */
+  Route::when('perms', 'only_admin');
+  Route::when('perms/*', 'only_admin');
   Route::resource('perms', 'PermsController');
   Route::post('perms/setPostPermissions',array('as' => 'perm.setPostPermissions', 'uses' => 'PermsController@setPostPermissions'));
 
@@ -29,6 +33,13 @@ PUT/PATCH 	/resource/{id} 		update 		resource.update
 DELETE 		/resource/{id} 		destroy 	resource.destroy
 */
 
+  /* Groups */
+  Route::when('groups', 'only_admin');
+  Route::when('groups/*', 'only_admin');
+  Route::resource('groups', 'GroupsController');
+  Route::get('set_permissions',array('as' => 'admin.set_permissions', 'uses' => 'PermsController@get_set_permissions', 'before' => 'auth'));
+
+  Route::resource('projects', 'ProjectsController');
  });
 
 Route::resource('tweets', 'TweetsController');
@@ -37,11 +48,3 @@ Route::get('panel', function()
 {
     return 'Hello World';
 });
-
-  /* Groups */
-Route::resource('groups', 'GroupsController');
-Route::get('set_permissions',array('as' => 'admin.set_permissions', 'uses' => 'PermsController@get_set_permissions', 'before' => 'auth'));
-
-
-
-Route::resource('projects', 'ProjectsController');

@@ -23,7 +23,7 @@
 	 @foreach ($projects as $project)
     <tr>
     <td>{{{ $project->name }}}</td>
-					<td>{{{ $project->description }}}</td>
+					<td>{{ $project->description }}</td>
 					<td>{{{ $project->inicio }}}</td>
 					<td>{{{ $project->cost }}}</td>
 
@@ -31,13 +31,13 @@
         <!-- view -->
         <span class="button-group">
           {{ Form::open(array('method' => 'GET', 'route' => array('projects.show', $project->id))) }}
-          <a class="button icon-download" href="projects/{{ $project->id }}">View</a>
+          <a class="button icon-download" href="projects/{{{ $project->id }}}">View</a>
             {{ Form::close() }}
         </span>
 
         <!-- edit -->
         <span class="button-group">
-          <a class="button icon-pencil" href="/bintra/public/projects/{{ $project->id }}/edit">Edit</a>
+          <a class="button icon-pencil" href="/bintra/public/projects/{{{ $project->id }}}/edit">Edit</a>
         </span>
 
         <!-- delete -->

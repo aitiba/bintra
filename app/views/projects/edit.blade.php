@@ -18,12 +18,19 @@
 
         <p class="inline-large-label button-height">
             {{ Form::label('description', 'Description:', array('class' => 'label')) }}
-            {{ Form::textarea('description') }}
+            {{ Form::textarea('description', $project->description, array('id' => 'ckeditor')) }}
         </p>
 
         <p class="inline-large-label button-height">
             {{ Form::label('inicio', 'Inicio:', array('class' => 'label')) }}
-            {{ Form::text('inicio', $project->inicio, array('id' => 'inicio')) }}
+              <p class="button-height">
+                                <span class="input">
+                                    <span class="icon-calendar"></span>
+                                   {{ Form::text('inicio', $project->inicio, array('id' => 'inicio')) }}
+                                </span>
+                            </p>
+
+                            <div id="inline-datepicker"></div>
         </p>
 
         <p class="inline-large-label button-height">
@@ -43,5 +50,14 @@
 @endif
 </div>
 </div>
+<!-- ckeditor -->
+{{ HTML::script('js/libs/ckeditor/ckeditor.js'); }}
+<script type="text/javascript">
+
+CKEDITOR.replace( 'ckeditor', {
+    height: 9000
+});
+
+</script>
 
 @stop
